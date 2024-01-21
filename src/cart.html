@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="../css/styleCart.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <header>
+    <div class="login">
+      <a href="#">
+          <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </header>
+
+<div class="cart-view">
+  <p>Itens no Carrinho:</p>
+  <ul id="cartItemsList"></ul>
+  <p>Total a Pagar: $<span id="totalAmount">0.00</span></p>
+
+  <a href="index.html" onclick="continueShopping()" class="continue-shopping-btn">Continue Comprando</a>
+  <button onclick="checkout()">Finalizar Compra</button>
+</div>
+
+<script src="../js/script.js"></script>
+<script>
+  // Adicione este bloco de código para atualizar a visualização do carrinho quando a página é carregada
+  document.addEventListener('DOMContentLoaded', function () {
+    updateCartView();
+  });
+</script>
+</body>
+</html>
