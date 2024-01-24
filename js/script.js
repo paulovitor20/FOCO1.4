@@ -225,3 +225,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const quantity = document.getElementById('quantity').value;
 console.log('Quantidade:', quantity);
+
+ // Adiciona um ouvinte de evento para controlar a visibilidade das opções de largura do tirante
+ document.getElementById('withHandle').addEventListener('change', function() {
+  // Seleciona o contêiner das opções de largura do tirante
+  const handleWidthOptions = document.getElementById('handleWidthOptions');
+  // Alterna a exibição com base na marcação do checkbox
+  handleWidthOptions.style.display = this.checked ? 'block' : 'none';
+});

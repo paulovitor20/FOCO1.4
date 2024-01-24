@@ -99,18 +99,20 @@
         <label>5. Com tirante ou sem tirante?</label>
         <input type="checkbox" id="withHandle" name="withHandle">
 
-
-        <label for="handleWidth">6. Qual a largura do tirante?</label>
-        <select id="handleWidth" name="handleWidth">
-          <option value="1.5cm">1,5cm</option>
-          <option value="2cm">2cm</option>
-          <option value="3cm">3cm</option>
-          <option value="3.5cm">3,5cm</option>
-          <option value="4cm">4cm</option>
-          <option value="5cm">5cm</option>
-          <option value="8cm">8cm</option>
-          <option value="10cm">10cm (exclusivo com ou sem zíper)</option>
-        </select>
+        <!-- Opções de largura do tirante (inicialmente ocultas) -->
+        <div id="handleWidthOptions" style="display: none;">
+          <label for="handleWidth">6. Qual a largura do tirante?</label>
+          <select id="handleWidth" name="handleWidth">
+            <option value="1.5cm">1,5cm</option>
+            <option value="2cm">2cm</option>
+            <option value="3cm">3cm</option>
+            <option value="3.5cm">3,5cm</option>
+            <option value="4cm">4cm</option>
+            <option value="5cm">5cm</option>
+            <option value="8cm">8cm</option>
+            <option value="10cm">10cm (exclusivo com ou sem zíper)</option>
+          </select>
+        </div>
       </form>
       <!-- Fim do Formulário -->
     </div>
