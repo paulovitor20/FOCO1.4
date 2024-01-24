@@ -4,55 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loja Online - FOCO</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
 <header>
-  <div class="login">
+  <div class="login" onclick="checkLoginStatus()">
     <a href="#">
-        <i class="fa-solid fa-user"></i>
+      <span id="loginStatus"><i class="fa-solid fa-user"></i></span>
     </a>
   </div>
 </header>
 
 <div class="product-list">
     <div class="product" onclick="openProductModal('Produto 1', 'Descrição do Produto 1', 19.99)">
-        <img src="../img/bandeira.png" alt="Produto 1">
+        <img src="img/bandeira.png" alt="Produto 1">
         <p>Descrição do Produto 1</p>
         <p>Preço: $19.99</p>
         <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
       </div>
     
       <div class="product" onclick="openProductModal('Produto 2', 'Descrição do Produto 2', 29.99)">
-        <img src="../img/camisa.jpeg" alt="Produto 2">
+        <img src="img/camisa.jpeg" alt="Produto 2">
         <p>Descrição do Produto 2</p>
         <p>Preço: $29.99</p>
         <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
       </div>
       <div class="product" onclick="openProductModal('Produto 1', 'Descrição do Produto 1', 19.99)">
-        <img src="../img/bandeira.png" alt="Produto 1">
+        <img src="img/bandeira.png" alt="Produto 1">
         <p>Descrição do Produto 1</p>
         <p>Preço: $19.99</p>
         <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
       </div>
     
       <div class="product" onclick="openProductModal('Produto 2', 'Descrição do Produto 2', 29.99)">
-        <img src="../img/camisa.jpeg" alt="Produto 2">
+        <img src="img/camisa.jpeg" alt="Produto 2">
         <p>Descrição do Produto 2</p>
         <p>Preço: $29.99</p>
         <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
       </div>
       <div class="product" onclick="openProductModal('Produto 1', 'Descrição do Produto 1', 19.99)">
-        <img src="../img/bandeira.png" alt="Produto 1">
+        <img src="img/bandeira.png" alt="Produto 1">
         <p>Descrição do Produto 1</p>
         <p>Preço: $19.99</p>
         <button onclick="addToCart(1)">Adicionar ao Carrinho</button>
       </div>
     
       <div class="product" onclick="openProductModal('Produto 2', 'Descrição do Produto 2', 29.99)">
-        <img src="../img/camisa.jpeg" alt="Produto 2">
+        <img src="img/camisa.jpeg" alt="Produto 2">
         <p>Descrição do Produto 2</p>
         <p>Preço: $29.99</p>
         <button onclick="addToCart(2)">Adicionar ao Carrinho</button>
@@ -82,6 +82,6 @@
     <p>Total a Pagar: $<span id="totalAmount">0.00</span></p>
     <button onclick="checkout()">Finalizar Compra</button>
 </div>
-<script src="../js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

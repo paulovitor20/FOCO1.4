@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="../../css/login.css"></head>
+<body>
+
+<header>
+  <div class="login" onclick="checkLoginStatus()">
+    <span id="loginStatus">Login</span>
+  </div>
+</header>
+
+<div class="login-form">
+  <h2>Login</h2>
+  <form>
+    <label for="username">Nome de Usuário:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="login()">Entrar</button>
+  </form>
+</div>
+
+<script src="../../js/script.js"></script>
+</body>
+</html>
