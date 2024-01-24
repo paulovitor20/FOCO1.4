@@ -63,60 +63,61 @@
     <!-- Adicione mais produtos conforme necessário -->
   </div>
 
-  <!-- Modal de Produto -->
-  <div id="productModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeProductModal()">&times;</span>
-      <img id="modalImage" src="" alt="">
-      <h2 id="productName"></h2>
-      <p id="productDescription"></p>
-      <p id="productPrice"></p>
+  <!-- Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProductModal">&times;</span>
+    <h2 id="productName"></h2>
+    <img id="modalImage" src="" alt="">
+    <p id="productDescription"></p>
+    <p id="productPrice"></p>
 
-      <!-- Formulário -->
-      <form id="productForm">
-        <label for="quantity">1. Qual a quantidade?</label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1">
+    <!-- Formulário -->
+    <form id="productForm">
+      <label for="quantity">1. Qual a quantidade?</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1">
 
-        <label>2. Temos de 400ml, 600ml, 700ml e 850ml?</label>
-        <select id="size" name="size">
-          <option value="400ml">400ml</option>
-          <option value="600ml">600ml</option>
-          <option value="700ml">700ml</option>
-          <option value="850ml">850ml</option>
+      <label>2. Temos de 400ml, 600ml, 700ml e 850ml?</label>
+      <select id="size" name="size">
+        <option value="400ml">400ml</option>
+        <option value="600ml">600ml</option>
+        <option value="700ml">700ml</option>
+        <option value="850ml">850ml</option>
+      </select>
+
+      <label>3. Será com uma (1) ou duas (2) estampas a caneca?</label>
+      <input type="checkbox" id="oneStamp" name="stamps" value="1">
+      <label for="oneStamp">Uma estampa</label>
+
+      <input type="checkbox" id="twoStamps" name="stamps" value="2">
+      <label for="twoStamps">Duas estampas</label>
+
+      <label>4. Qual a cor da caneca?</label>
+      <input type="text" id="color" name="color">
+
+      <label>5. Com tirante ou sem tirante?</label>
+      <input type="checkbox" id="withHandle" name="withHandle">
+      
+      <!-- Opções de largura do tirante (inicialmente ocultas) -->
+      <div id="handleWidthOptions" style="display: none;">
+        <label for="handleWidth">6. Qual a largura do tirante?</label>
+        <select id="handleWidth" name="handleWidth">
+          <option value="1.5cm">1,5cm</option>
+          <option value="2cm">2cm</option>
+          <option value="3cm">3cm</option>
+          <option value="3.5cm">3,5cm</option>
+          <option value="4cm">4cm</option>
+          <option value="5cm">5cm</option>
+          <option value="8cm">8cm</option>
+          <option value="10cm">10cm (exclusivo com ou sem zíper)</option>
         </select>
-
-
-        <label>3. Será com uma (1) ou duas (2) estampas a caneca?</label>
-        <input type="checkbox" id="oneStamp" name="stamps" value="1">
-        <label for="oneStamp">Uma estampa</label>
-
-        <input type="checkbox" id="twoStamps" name="stamps" value="2">
-        <label for="twoStamps">Duas estampas</label>
-
-        <label>4. Qual a cor da caneca?</label>
-        <input type="text" id="color" name="color">
-
-        <label>5. Com tirante ou sem tirante?</label>
-        <input type="checkbox" id="withHandle" name="withHandle">
-
-        <!-- Opções de largura do tirante (inicialmente ocultas) -->
-        <div id="handleWidthOptions" style="display: none;">
-          <label for="handleWidth">6. Qual a largura do tirante?</label>
-          <select id="handleWidth" name="handleWidth">
-            <option value="1.5cm">1,5cm</option>
-            <option value="2cm">2cm</option>
-            <option value="3cm">3cm</option>
-            <option value="3.5cm">3,5cm</option>
-            <option value="4cm">4cm</option>
-            <option value="5cm">5cm</option>
-            <option value="8cm">8cm</option>
-            <option value="10cm">10cm (exclusivo com ou sem zíper)</option>
-          </select>
-        </div>
-      </form>
-      <!-- Fim do Formulário -->
-    </div>
+      </div>
+      <!-- Fim das opções de largura do tirante -->
+    </form>
+    <!-- Fim do Formulário -->
   </div>
+</div>
+
 
   <!-- Ícone de carrinho na barra inferior -->
   <div class="footer-bar cart-icon" onclick="openCartPage()">
