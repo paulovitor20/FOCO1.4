@@ -65,15 +65,15 @@ function removeCartItem(index) {
 function checkout() {
   // Atualize esta função para limpar o localStorage após a compra
   const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  
+
   if (storedCartItems.length > 0) {
     console.log('Compra finalizada. Itens no carrinho:', storedCartItems);
-    
+
     // Adicione lógica real para finalizar a compra aqui
-    
+
     // Limpe os itens do carrinho no localStorage após a compra
     localStorage.removeItem('cartItems');
-    
+
     updateCartView(); // Atualize a visualização do carrinho
   } else {
     console.log('Carrinho vazio. Adicione itens antes de finalizar a compra.');
@@ -95,12 +95,16 @@ document.addEventListener('DOMContentLoaded', function () {
   continueShopping();
 });
 
-function openProductModal(name, description, price) {
+function openProductModal(name, description, price, imageSrc) {
+  
   // Preenche as informações do produto no modal
   document.getElementById('productName').innerText = name;
   document.getElementById('productDescription').innerText = description;
   document.getElementById('productPrice').innerText = 'Preço: $' + price.toFixed(2);
-
+  
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = imageSrc;
+  modalImage.alt = name;
   // Exibe o modal
   document.getElementById('productModal').style.display = 'block';
 }
@@ -111,7 +115,7 @@ function closeProductModal() {
 }
 
 // Fecha o modal ao clicar fora dele
-window.onclick = function(event) {
+window.onclick = function (event) {
   var modal = document.getElementById('productModal');
   var closeBtn = document.getElementsByClassName('close')[0];
 
@@ -219,4 +223,5 @@ document.addEventListener('DOMContentLoaded', function () {
   checkLoginStatus();
 });
 
-// Restante do seu código...
+const quantity = document.getElementById('quantity').value;
+console.log('Quantidade:', quantity);

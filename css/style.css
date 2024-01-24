@@ -158,6 +158,11 @@ button:hover {
     width: 80%;
 }
 
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -171,3 +176,39 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+/* Estilo geral para o formulário */
+#productForm {
+    margin-top: 20px;
+  }
+  
+  /* Estilo para os rótulos */
+  #productForm label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para os campos de entrada e seleção */
+  #productForm input,
+  #productForm select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para os botões do formulário */
+  #productForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Adicione cor de fundo e borda ao formulário no modal */
+  #productForm {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+  }
