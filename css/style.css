@@ -1,12 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #add8e6;
-    /* Azul bebê */
+    background-color: #add8e6; /* Azul bebê */
     padding: 10px;
     text-align: right;
     height: 30px;
@@ -38,36 +36,6 @@ header {
 
 .cart-icon {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.cart-icon i {
-    font-size: 30px;
-    color: #000000;
-}
-
-.cart-view {
-    display: none;
-    position: fixed;
-    bottom: 50px;
-    left: 10px;
-    width: 250px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.cart-view.show {
-    display: block;
-}
-
-/* Adicione estilos para o ícone do carrinho */
-.cart-icon {
-    position: fixed;
     bottom: 15px;
     right: 15px;
     font-size: 40px;
@@ -79,10 +47,8 @@ header {
     margin-left: -10;
 }
 
-/* Barra inferior azul bebê */
 .footer-bar {
-    background-color: #add8e6;
-    /* Azul bebê */
+    background-color: #add8e6; /* Azul bebê */
     height: 50px;
     width: 100%;
     position: fixed;
@@ -104,15 +70,13 @@ button {
     display: block;
     margin: 20px auto;
     border-radius: 5px;
-    transition: background-color 0.3s;
-    /* Adiciona uma transição suave à cor de fundo */
+    transition: background-color 0.3s; /* Adiciona uma transição suave à cor de fundo */
 }
 
 button:hover {
     background-color: #add8e6;
 }
 
-/* Estilos para dispositivos móveis */
 @media (max-width: 600px) {
     .product-list {
         display: flex;
@@ -124,20 +88,15 @@ button:hover {
         width: 100%;
         margin: 2px -10px;
         display: flex;
-        /* Exibe os elementos .product como flex container */
         align-items: center;
-        /* Centraliza verticalmente os itens */
     }
 
     .product img {
         width: 50px;
-        /* Define a largura da imagem */
         margin-right: 10px;
-        /* Adiciona espaço entre a imagem e o texto */
     }
 }
 
-/* Estilo do modal */
 .modal {
     display: none;
     position: fixed;
@@ -177,43 +136,47 @@ button:hover {
     cursor: pointer;
 }
 
-/* Estilização do formulário dentro do modal */
 #productForm {
     margin-top: 20px;
 }
 
-/* Estilização dos rótulos do formulário */
 #productForm label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
 }
 
-/* Estilização dos campos de entrada e seleção */
-#productForm input,
-#productForm select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+#productForm input[type="checkbox"] {
+    margin-right: 5px;
 }
 
-/* Estilização dos botões do formulário */
-#productForm button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
+#productForm label[for="oneStamp"],
+#productForm label[for="twoStamps"] {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
 }
 
-/* Adicione cor de fundo e borda ao formulário no modal */
-#productForm {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
+#productForm label[for="withHandle"],
+#productForm label[for="withoutHandle"] {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cart-view {
+    display: none;
+    position: fixed;
+    bottom: 50px; /* Alterei de `bottom: 50px` para `top: 50px` para corrigir a posição */
+    left: 10px;
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart-view.show {
+    display: block;
 }

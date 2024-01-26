@@ -17,10 +17,14 @@ function addToCart(productId) {
 
     cartItems.push(newItem);
     updateCartCount();
-    updateCartView();
 
     // Armazene os itens no localStorage
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Atualize a visualização do carrinho apenas se o cart-view não estiver sendo exibido
+    if (!document.getElementById('cartView').classList.contains('show')) {
+      updateCartView();
+    }
   }
   event.stopPropagation();
 }
@@ -222,14 +226,41 @@ document.addEventListener('DOMContentLoaded', function () {
   // Chame a função ao carregar a página de perfil
   checkLoginStatus();
 });
+// Função para atualizar o estado das opções de tirante
+function updateHandleOptions() {
+  const withHandleCheckbox = document.getElementById("withHandle");
+  const withoutHandleCheckbox = document.getElementById("withoutHandle");
 
-const quantity = document.getElementById('quantity').value;
-console.log('Quantidade:', quantity);
+  if (withHandleCheckbox.checked) {
+    // Se "Com Tirante" for selecionado, desmarcar "Sem Tirante"
+    withoutHandleCheckbox.checked = false;
+    // Exibir opções de largura do tirante
+    document.getElementById("handleWidthOptions").style.display = "block";
+  } else if (withoutHandleCheckbox.checked) {
+    // Se "Sem Tirante" for selecionado, desmarcar "Com Tirante"
+    withHandleCheckbox.checked = false;
+    // Ocultar opções de largura do tirante
+    document.getElementById("handleWidthOptions").style.display = "none";
+  } else {
+    // Nenhum selecionado, ocultar opções de largura do tirante
+    document.getElementById("handleWidthOptions").style.display = "none";
+  }
+}
 
- // Adiciona um ouvinte de evento para controlar a visibilidade das opções de largura do tirante
- document.getElementById('withHandle').addEventListener('change', function() {
-  // Seleciona o contêiner das opções de largura do tirante
-  const handleWidthOptions = document.getElementById('handleWidthOptions');
-  // Alterna a exibição com base na marcação do checkbox
-  handleWidthOptions.style.display = this.checked ? 'block' : 'none';
-});
+// Adicione a chamada da função updateHandleOptions nos eventos de clique dos checkboxes
+document.getElementById("withHandle").addEventListener("click", updateHandleOptions);
+document.getElementById("withoutHandle").addEventListener("click", updateHandleOptions);
+
+// Função para lidar com a opção de estampa
+function handleStampOption(selectedOption) {
+  const oneStampCheckbox = document.getElementById('oneStamp');
+  const twoStampsCheckbox = document.getElementById('twoStamps');
+
+  if (selectedOption === 1) {
+    // Se escolher uma estampa, desmarca a opção de duas estampas
+    twoStampsCheckbox.checked = false;
+  } else if (selectedOption === 2) {
+    // Se escolher duas estampas, desmarca a opção de uma estampa
+    oneStampCheckbox.checked = false;
+  }
+}
