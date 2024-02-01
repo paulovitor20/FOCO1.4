@@ -1,51 +1,120 @@
-// Função para carregar conteúdo dinâmico no card de pedidos
-function loadOrdersContent() {
-  const ordersCard = document.getElementById('ordersCard');
-  const dynamicContent = '<p>Conteúdo dinâmico do Card de Pedidos...</p>'; // Adicione seu conteúdo dinâmico aqui
-  ordersCard.innerHTML = dynamicContent;
-}
+// SIDEBAR TOGGLE
 
-// Event listener para o carregamento de conteúdo dinâmico no card de pedidos
-document.addEventListener('DOMContentLoaded', function() {
-  loadOrdersContent();
-});
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
-var sidebar = document.getElementsByClassName("sidebar");
+let sidebarOpen = false;
+const sidebar = document.getElementById('sidebar');
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const sidebar = document.querySelector('.sidebar');
-  const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const closeButton = document.querySelector('.close-button');
-
-  // Função para alternar a barra lateral
-  function toggleSidebar() {
-    sidebar.classList.toggle('active');
+function openSidebar() {
+  if (!sidebarOpen) {
+    sidebar.classList.add('sidebar-responsive');
+    sidebarOpen = true;
   }
+}
 
-  // Função para fechar a barra lateral
 function closeSidebar() {
-  if (sidebar.classList.contains('active')) {
-    sidebar.classList.remove('active');
+  if (sidebarOpen) {
+    sidebar.classList.remove('sidebar-responsive');
+    sidebarOpen = false;
   }
 }
 
-  // Adiciona event listener para o botão de alternância
-  sidebarToggle.addEventListener('click', toggleSidebar);
+// ---------- CHARTS ----------
 
-  // Adiciona event listener para o botão de fechar
-  closeButton.addEventListener('click', closeSidebar);
+// BAR CHART
+const barChartOptions = {
+  series: [
+    {
+      data: [10, 8, 6, 4, 2],
+    },
+  ],
+  chart: {
+    type: 'bar',
+    height: 350,
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
+  plotOptions: {
+    bar: {
+      distributed: true,
+      borderRadius: 4,
+      horizontal: false,
+      columnWidth: '40%',
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  legend: {
+    show: false,
+  },
+  xaxis: {
+    categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
+  },
+  yaxis: {
+    title: {
+      text: 'Count',
+    },
+  },
+};
 
-});
+const barChart = new ApexCharts(
+  document.querySelector('#bar-chart'),
+  barChartOptions
+);
+barChart.render();
+
+// AREA CHART
+const areaChartOptions = {
+  series: [
+    {
+      name: 'Purchase Orders',
+      data: [31, 40, 28, 51, 42, 109, 100],
+    },
+    {
+      name: 'Sales Orders',
+      data: [11, 32, 45, 32, 34, 52, 41],
+    },
+  ],
+  chart: {
+    height: 350,
+    type: 'area',
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: ['#4f35a1', '#246dec'],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: 'smooth',
+  },
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  markers: {
+    size: 0,
+  },
+  yaxis: [
+    {
+      title: {
+        text: 'Purchase Orders',
+      },
+    },
+    {
+      opposite: true,
+      title: {
+        text: 'Sales Orders',
+      },
+    },
+  ],
+  tooltip: {
+    shared: true,
+    intersect: false,
+  },
+};
+
+const areaChart = new ApexCharts(
+  document.querySelector('#area-chart'),
+  areaChartOptions
+);
+areaChart.render();
