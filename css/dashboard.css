@@ -1,0 +1,127 @@
+/* Reset de margens e preenchimentos padrão */
+body, h1, h2, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Definindo a fonte global */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #000;
+}
+
+/* Estilos da barra superior */
+.topbar {
+  background-color: #add8e6;
+  color: white;
+  padding: 10px;
+  height: 40px;
+  text-align: center;
+  
+}
+
+/* Estilos da barra lateral */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: #add8e6;
+  padding-top: 50px;
+  float: left;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  font-size: 12px;
+  color: black;
+}
+
+.sidebar a {
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #444;
+}
+.sidebar .dropdown-btn{
+  background-color:  #add8e6;
+}
+.sidebar .dropdown-btn:hover {
+  background-color: #444;
+}
+.close-button{
+  float: right;
+  margin-top: -50px;
+  text-decoration: none;
+  background-color: #add8e6;
+
+}
+.dropdown-btn {
+  width: 100%;
+  background-color: #90c5d6;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.dropdown-container {
+  display: none;
+  padding-left: 15px;
+}
+
+.dropdown-container a {
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+/* Estilos do conteúdo principal */
+.container {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  left: 0;
+}
+
+.card {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  margin-top: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.sidebar-toggle {
+  float: left;
+}
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .container {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    left: 0;
+    top: 45px;
+    width: 100%;
+    position: fixed;
+  }
+
+  .sidebar-toggle {
+    float: left;
+  }
+
+  .dropdown-container {
+    padding-left: 0;
+  }
+}

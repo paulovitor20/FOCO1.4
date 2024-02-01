@@ -100,12 +100,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function openProductModal(name, description, price, imageSrc) {
-  
+
   // Preenche as informações do produto no modal
   document.getElementById('productName').innerText = name;
   document.getElementById('productDescription').innerText = description;
   document.getElementById('productPrice').innerText = 'Preço: $' + price.toFixed(2);
-  
+
   const modalImage = document.getElementById('modalImage');
   modalImage.src = imageSrc;
   modalImage.alt = name;
@@ -264,3 +264,77 @@ function handleStampOption(selectedOption) {
     oneStampCheckbox.checked = false;
   }
 }
+// Função para cadastrar um novo produto
+function addNewProduct(name, description, price, image) {
+  const newProduct = {
+    id: products.length + 1,
+    name: name,
+    description: description,
+    price: price,
+    image: image
+  };
+
+  // Adiciona o novo produto ao array de produtos
+  products.push(newProduct);
+
+  // Chama a função para renderizar a lista de produtos
+  renderProductList();
+}
+//Função para lidar com o envio do formulário de cadastro de produtos
+function submitProductForm(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
+
+  // Obtém os valores dos campos do formulário
+  const productName = document.getElementById('productName').value;
+  const productDescription = document.getElementById('productDescription').value;
+  const productPrice = parseFloat(document.getElementById('productPrice').value);
+  const productImageInput = document.getElementById('productImage');
+  
+  // Verifica se um arquivo de imagem foi selecionado
+  if (productImageInput.files.length === 0) {
+    alert('Por favor, selecione uma imagem para o produto.');
+    return;
+  }
+
+  // Obtém o objeto de arquivo da imagem
+  const productImageFile = productImageInput.files[0];
+
+  // Crie um objeto URL para a imagem carregada
+  const imageUrl = URL.createObjectURL(productImageFile);
+
+  // Adiciona o novo produto
+  addNewProduct(productName, productDescription, productPrice, imageUrl);
+
+  // Limpa os campos do formulário
+  document.getElementById('productName').value = '';
+  document.getElementById('productDescription').value = '';
+  document.getElementById('productPrice').value = '';
+  document.getElementById('productImage').value = '';
+}
+
+
+// Array para armazenar os produtos cadastrados
+l
+// Função para renderizar a lista de produtos na página
+function renderProductList() {
+  const productContainer = document.querySelector('.product-list');
+
+  // Limpa o conteúdo atual
+  productContainer.innerHTML = '';
+
+  // Adiciona cada produto à lista
+  products.forEach(product => {
+    const productItem = document.createElement('div');
+    productItem.classList.add('product');
+    productItem.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <p>${product.description}</p>
+      <p>Preço: $${product.price.toFixed(2)}</p>
+      <button onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
+    `;
+
+    productContainer.appendChild(productItem);
+  });
+}
+// Chama a função para renderizar a lista de produtos quando a página é carregada
+document.addEventListener('DOMContentLoaded', renderProductList);

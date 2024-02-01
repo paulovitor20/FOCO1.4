@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../../css/dashboard.css">
+  <title>Painel de Controle</title>
+</head>
+
+
+<body>
+  <div class="topbar">
+    <p>Painel de Controle</p>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <a class="close-button" onclick="closeSidebar()">X</a>
+      <a href="#clients">Pedido</a>
+      <a href="#contact">Relatório</a>
+      <div class="dropdown">
+        <button class="dropdown-btn" >Pedido<i class="caret-down"></i></button>
+        <div class="dropdown-container">
+          <a href="#">Lista pedido</a>
+          <a href="#">Status</a>
+          <a href="#">Relatório de Pedidos</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+      <!-- Cards aqui -->
+      <div class="card" id="ordersCard">
+        <h2>Lista de Pedidos</h2>
+        <!-- Conteúdo do Card de Pedidos será inserido aqui dinamicamente -->
+      </div>
+
+      <div class="card">
+        <h2>Relatório de Pedidos</h2>
+        <p>Conteúdo do Card de Relatório de Pedidos...</p>
+      </div>
+
+      <div class="card">
+        <h2>Status do Pedido</h2>
+        <p>Conteúdo do Card de Status do Pedido...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/dashboard.js"></script>
+</body>
+
+</html>
