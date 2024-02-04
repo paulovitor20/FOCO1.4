@@ -118,3 +118,37 @@ const areaChart = new ApexCharts(
   areaChartOptions
 );
 areaChart.render();
+
+
+
+// Função para carregar dinamicamente o conteúdo com base no link clicado
+function loadContent(contentType) {
+  // Defina o título da página
+  document.getElementById("pageTitle").innerText = contentType;
+
+  // Use AJAX para buscar o conteúdo da página do servidor
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState == 4 && xhr.status == 200) {
+        // Exiba o conteúdo na área principal
+        document.getElementById("dynamicContentContainer").innerHTML = xhr.responseText;
+     }
+  };
+  
+  // Defina o URL da página a ser carregada (ajuste conforme necessário)
+  var url = "login.html" + contentType.toLowerCase() + ".html";
+
+  xhr.open("GET", url, true);
+  xhr.send();
+}
+
+// Atribua eventos de clique aos links do menu
+document.getElementById("dashboardLink").addEventListener("click", function () {
+  loadContent("Painel de Controle");
+});
+
+document.getElementById("productsList").addEventListener("click", function () {
+  loadContent("Produtos");
+});
+
+// Adicione eventos para outros links, se necessário
