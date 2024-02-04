@@ -39,12 +39,12 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="#" id="dashboardLink"> 
+            <a href="#" target="_blank" id="dashboardLink"> 
               <span class="material-icons-outlined">dashboard</span> Painel de Controle
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#"  id="productsList">
+            <a href="" target="_blank" id="productsList">
               <span class="material-icons-outlined">inventory_2</span> Produtos
             </a>
           </li>
@@ -70,59 +70,28 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <p class="font-weight-bold" id="pageTitle">PAINEL DE CONTROLE</p>
+          <p class="font-weight-bold">PAINEL DE CONTROLE</p>
         </div>
 
-        <div class="main-cards">
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">PRODUTOS</p>
-              <span class="material-icons-outlined text-blue">inventory_2</span>
-            </div>
-            <span class="text-primary font-weight-bold">249</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">ORDEM DE COMPRAS</p>
-              <span class="material-icons-outlined text-orange">add_shopping_cart</span>
-            </div>
-            <span class="text-primary font-weight-bold">83</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">ORDEM DE VENDAS</p>
-              <span class="material-icons-outlined text-green">shopping_cart</span>
-            </div>
-            <span class="text-primary font-weight-bold">79</span>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <p class="text-primary">INVENTÁRIO</p>
-              <span class="material-icons-outlined text-red">notification_important</span>
-            </div>
-            <span class="text-primary font-weight-bold">56</span>
-          </div>
-
+        <div class="product-form">
+            <h2>Cadastrar Novo Produto</h2>
+            <form onsubmit="submitProductForm(event)">
+                <!-- Seus campos do formulário aqui -->
+                <label for="productName">Nome do Produto:</label>
+                <input type="text" id="productName" name="productName" required>
+    
+                <label for="productDescription">Descrição:</label>
+                <textarea id="productDescription" name="productDescription" required></textarea>
+    
+                <label for="productPrice">Preço:</label>
+                <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+    
+                <label for="productImage">Imagem do Produto:</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*">
+    
+                <button type="submit">Cadastrar</button>
+            </form>
         </div>
-
-        <div class="charts">
-
-          <div class="charts-card">
-            <p class="chart-title">5 Produtos mais vendidos</p>
-            <div id="bar-chart"></div>
-          </div>
-
-          <div class="charts-card">
-            <p class="chart-title">Pedidos de Compra e Venda</p>
-            <div id="area-chart"></div>
-          </div>
-
-        </div>
-        <div id="dynamicContentContainer"></div>
       </main>
       <!-- End Main -->
 

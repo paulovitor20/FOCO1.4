@@ -85,7 +85,7 @@ function checkout() {
 }
 // função para abrir o carrinho em uma nova página
 function openCartPage() {
-  window.location.href = './src/pages/cart.html';
+  window.location.href = './pages/cart.html';
 }
 function continueShopping() {
   // Obtém os itens do carrinho do armazenamento local
@@ -139,9 +139,9 @@ function checkLoginStatus() {
 
   // Redirecione com base no status de login
   if (isLoggedIn) {
-    window.location.href = './src/pages/profile.html'; // Redireciona para a página de perfil
+    window.location.href = './pages/profile.html'; // Redireciona para a página de perfil
   } else {
-    window.location.href = './src/pages/singUp.html'; // Redireciona para a página de criação de conta
+    window.location.href = './pages/singUp.html'; // Redireciona para a página de criação de conta
   }
 }
 // Função para redirecionar para a página de login
