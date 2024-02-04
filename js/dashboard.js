@@ -120,7 +120,6 @@ const areaChart = new ApexCharts(
 areaChart.render();
 
 
-
 // Função para carregar dinamicamente o conteúdo com base no link clicado
 function loadContent(contentType) {
   // Defina o título da página
@@ -129,14 +128,18 @@ function loadContent(contentType) {
   // Use AJAX para buscar o conteúdo da página do servidor
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
-     if (xhr.readyState == 4 && xhr.status == 200) {
-        // Exiba o conteúdo na área principal
-        document.getElementById("dynamicContentContainer").innerHTML = xhr.responseText;
+     if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+           // Exiba o conteúdo na área principal
+           document.getElementById("dynamicContentContainer").innerHTML = xhr.responseText;
+        } else {
+           console.error("Erro ao carregar a página:", xhr.status, xhr.statusText);
+        }
      }
   };
-  
+
   // Defina o URL da página a ser carregada (ajuste conforme necessário)
-  var url = "login.html" + contentType.toLowerCase() + ".html";
+  var url = "pages/productsList" + contentType.toLowerCase() + ".html";
 
   xhr.open("GET", url, true);
   xhr.send();
